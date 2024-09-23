@@ -71,9 +71,9 @@
     </nav>
   </header>
 
-  <section class="container-xxl"> <!--Cuerpo de página-->
+  <section class="container-fluid pb-4 pt-4"> <!--Cuerpo de página-->
     <div> <!--Carrusel-->
-      <div id="carouselExample" class="carousel slide">
+      <div id="carouselExample" class="carousel slide carousel-fade">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="./ASSETS/IMG/Esc40_1.png" class="d-block w-100" height="400" alt="...">
@@ -93,6 +93,47 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
+      </div>
+
+      <hr>
+      
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              ¿Para qué sirve el sistema de gestión de alumnado?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Podrás consultar tus avances en la carrera que estás cursando, así como ver el progreso en tiempo real de tus cursadas aprobadas, consultar tu condición en la carrera, revisar calificaciones y además, podrás inscribirte a exámenes finales.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              ¿Cómo creo mi usuario en la plataforma?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Para crear un usuario en la plataforma, primero deberás inscribirte a alguna de nuestras <a>Ofertas Académicas</a> consultando previamente las fechas de inscripción. Luego de enviar tu inscripción, deberás esperar a la aprobación de la misma, donde se te enviará por tu correo electrónico los pasos a seguir.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              ¿Que hago si olvido/pierdo mis datos personales de acceso?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -139,8 +180,8 @@
     </div>
   </section>
 
-  <footer> <!--Pie de página-->
-    
+  <footer class="pt-4 pb-4 bg-body-secondary"> <!--Pie de página-->
+    <h1>Hola munbdo</h1>
   </footer>
 </body>
 
