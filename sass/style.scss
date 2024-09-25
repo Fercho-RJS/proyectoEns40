@@ -1,3 +1,18 @@
-$body-tertiary-bg: #0494B4;
+//Colores del modo claro modificados para el Navbar
+$body-tertiary-bg: #068dac;
 $navbar-light-color: #FFF;
+$navbar-light-brand-color: #FFF;
+$navbar-light-disabled-color: #052a30;
+$navbar-light-hover-color: #0a2327;
+
+//Colores del modal modificados
+
+$modal-content-bg: #ffffff;
+$modal-backdrop-bg: #000000;
+
+footer
+{
+  color: white;
+}
+
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
