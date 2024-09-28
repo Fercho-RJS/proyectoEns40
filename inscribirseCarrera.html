@@ -92,7 +92,7 @@
 
       <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <button type="button" class="btn btn-primary" href="index.html">Inicio</button>
+          <a class="btn" href="./index.html">Inicio</a>
         </div>
         <div class="col-auto">
           <span id="passwordHelpInline" class="form-text">
@@ -113,6 +113,7 @@
         <form class="row g-3" action=""> <!--Aquí iría el inscribirseCarrera.php-->
           <div class="row">
             <div class="col-12">
+              <hr>
               <label for="carrera" class="form-label" style="font-family: 'Fredoka', sans-serif;">Carrera a la que se Inscribe<span style="color: red;">*</span></label>
               <select class="form-select" aria-label="Default select example" name="carrera" id="carrera" style="font-family: 'Fredoka', sans-serif;">
                 <option selected>Seleccione Carrera</option>
@@ -123,12 +124,12 @@
             </div>
             
             <div class="col-sm-6">
-              <label for="apellido" class="form-label" style="font-family: 'Fredoka', sans-serif;">Apellido <span style="color: red;">*</span></label>
+              <label for="apellido" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Apellido <span style="color: red;">*</span></label>
               <input type="text" style="font-family: 'Fredoka', sans-serif;" class="form-control" name="apellido" id="apellido" placeholder="Ingrese Apellido">
             </div>
             
             <div class="col-sm-6 mb-3">
-              <label for="nombre" class="form-label" style="font-family: 'Fredoka', sans-serif;">Nombre<span style="color: red;">*</span></label>
+              <label for="nombre" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Nombre<span style="color: red;">*</span></label>
               <input type="text" class="form-control" name="nombre" id="nombre" style="font-family: 'Fredoka', sans-serif;" placeholder="Ingresa Nombre">
             </div>
             
@@ -142,18 +143,17 @@
               <input type="date" class="form-control" name="fechaNac" id="fechaNac">
             </div>
 
-            <div class="col-md-7">
+            <div class="col-md-6 ">
               <label for="localidad" class="form-label" style="font-family: 'Fredoka', sans-serif;">Localidad<span style="color: red;">*</span></label>
               <input type="text" class="form-control" name="localidad" id="localidad" style="font-family: 'Fredoka', sans-serif;" placeholder="Ingrese su Localidad">
-              <label for="telefono" class="form-label" style="font-family: 'Fredoka', sans-serif;">Celular (Sin el 0 del código de area y sin el 15)<span style="color: red;">*</span></label>
               
-              <div class="row g-3 align-items-center">
-                <div class="col-2">
+              <div class="row g-3 align-items-center pt-2">
+                <div class="col-3">
                   <label for="area" class="form-label" style="font-family: 'Fredoka', sans-serif;">Area<span style="color: red;">*</span></label>
                   <input type="tel" id="area" class="form-control" style="font-family: 'Fredoka', sans-serif;" placeholder="sin el 0">
                 </div>
                 
-                <div class="col-3">
+                <div class="col-9">
                   <label for="celular" class="form-label" style="font-family: 'Fredoka', sans-serif;">Celular<span style="color: red;">*</span></label>
                   <input type="tel" id="celular" class="form-control" style="font-family: 'Fredoka', sans-serif;" placeholder="sin el 15">
                 </div>
@@ -169,17 +169,17 @@
                 <option value="3">Prefiero no decirlo</option>
               </select>
               
-              <label for="email" class="form-label" style="font-family: 'Fredoka', sans-serif;">Email<span style="color: red;">*</span></label>
+              <label for="email" class="form-label  pt-2" style="font-family: 'Fredoka', sans-serif;">Email<span style="color: red;">*</span></label>
               <input type="email" class="form-control" id="email" placeholder="correo@mail.com">
             </div>
             
             <div class="col-12">
-              <label for="domicilio" class="form-label" style="font-family: 'Fredoka', sans-serif;">Domicilio<span style="color: red;">*</span></label>
+              <label for="domicilio" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Domicilio<span style="color: red;">*</span></label>
               <input type="text" class="form-control" id="domicilio" placeholder="San Martin 1122">
             </div>
             
             <div class="col-sm-6">
-              <label for="EstadoCivil" class="form-label" style="font-family: 'Fredoka', sans-serif;">Estado Civil<span style="color: red;">*</span></label>
+              <label for="EstadoCivil" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Estado Civil<span style="color: red;">*</span></label>
               <select class="form-select" aria-label="Default select example" name="EstadoCivil" id="EstadoCivil" style="font-family: 'Fredoka', sans-serif;">
                   <option value="1">Soltero/a</option>
                   <option value="2">Casado/a</option>
@@ -191,7 +191,7 @@
             </div>
 
             <div class="col-sm-6 mb-3">
-              <label for="ocupacion" class="form-label" style="font-family: 'Fredoka', sans-serif;">Ocupacion </label>
+              <label for="ocupacion" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Ocupacion </label>
               <input type="text" class="form-control" name="ocupacion" id="ocupacion">
             </div>
             
@@ -204,10 +204,11 @@
               <label for="tituloesc" class="form-label" style="font-family: 'Fredoka', sans-serif;">Titulo Expendido por la escuela</label>
               <input type="text" class="form-control" name="tituloesc" id="tituloesc">
             </div>
-          </div>
-          <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-success" name="enviar" id="enviar">Enviar</button>
-            <button type="button" class="btn btn-primary" href="index.html">Volver</button>
+
+            <div class="d-grid gap-2 pt-2">
+              <button type="submit" class="btn btn-success" name="enviar" id="enviar">Enviar</button>
+              <button type="button" class="btn btn-primary" href="index.html">Volver</button>
+            </div>
           </div>
         </form>
       </div>
