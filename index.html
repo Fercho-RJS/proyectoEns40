@@ -166,22 +166,22 @@
           <div class="modal-body"> <!--Cuerpo del modal-->
             <form action=""> <!--Aquí iría el login.php-->
               <div class="mb-3"> <!--Seleccionar perfil (Bedel, profesor, alumno/a)-->
-                <label for="exampleFormControlInput1" class="form-label">Seleccione su perfil</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Alumno</option>
-                  <option value="1">Profesor</option>
-                  <option value="2">Bedel</option>
+                <label for="inputPerfil" class="form-label">Seleccione su perfil</label>
+                <select id="inputPerfil" class="form-select" aria-label="Default select example">
+                  <option value="1" selected>Alumno</option>
+                  <option value="2">Profesor</option>
+                  <option value="3">Bedel</option>
                 </select>
               </div>
   
               <div class="mb-3 d-block"> <!--Ingresar usuario -->
-                <label for="exampleFormControlInput1" class="form-label">Ingrese su usuario</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <label for="inputUsuario" class="form-label">Ingrese su usuario</label>
+                <input type="text" class="form-control" id="inputUsuario" placeholder="">
               </div>
   
               <div class="mb-3"> <!--Ingresar contraseña -->
-                <label for="exampleFormControlInput1" class="form-label">Ingrese su contraseña</label>
-                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                <label for="inputPassword" class="form-label">Ingrese su contraseña</label>
+                <input type="password" id="inputPassword" class="form-control" aria-describedby="passwordHelpBlock">
               </div>
             </form>
           </div>
@@ -214,22 +214,18 @@
           <div class="modal-body"> <!--Cuerpo del modal-->
             <form action=""> <!--Aquí iría el recuperarCuenta.php-->
               <div class="mb-3"> <!--Seleccionar perfil (Bedel, profesor, alumno/a)-->
-                <label for="exampleFormControlInput1" class="form-label">Seleccione su perfil</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Alumno</option>
-                  <option value="1">Profesor</option>
-                  <option value="2">Bedel</option>
+                <label for="inputPerfil2" class="form-label">Seleccione su perfil</label>
+                <select id="inputPerfil2" class="form-select" aria-label="Default select example">
+                  <option value="1" selected>Alumno</option>
+                  <option value="2">Profesor</option>
+                  <option value="3">Bedel</option>
                 </select>
               </div>
   
-              <div class="mb-3"> <!--Ingresar usuario -->
-                <label for="exampleFormControlInput1" class="form-label">Ingrese su usuario</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-              </div>
-  
+ 
               <div class="mb-3"> <!--Ingresar correo electrónico -->
-                <label for="exampleFormControlInput1" class="form-label">Ingrese su correo electrónico</label>
-                <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                <label for="inputEmail2" class="form-label">Ingrese su correo electrónico</label>
+                <input type="text" id="inputEmail2" class="form-control" aria-describedby="passwordHelpBlock">
               </div>
 
               <!--Aquí iría el Captcha-->
@@ -278,6 +274,38 @@
   </footer>
 </body>
 
+<!--Script JQUERY-->
+<script src="./public/assets/jquery/jquery-3.2.1.slim/jquery-3.2.1.min.js"></script>
 <!--Script JS de Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+$('#btnIngresar').click(function(event) {
+      event.preventDefault();
+
+      let usuario = $('#inputUsuario').val();
+      let pwd = $('#inputPassword').val();
+      let perfil = $('#inputPerfil').val();
+      let parametros = {'inputUsuario':usuario,'inputPassword':pwd,'inputPerfil':perfil}
+      //console.log(parametros);
+      let link = "ajax/autenticar.php";
+
+      $.post(link,parametros,function(response) {
+            console.info(response);
+            if (response.status==200) {
+                if (response.estado==1) {
+                    $(location).attr('href','mod_alumno/home.php');
+                } else if (response.estado==2) {
+                    $(location).attr('href','mod_profesor/home.php');
+                } else if (response.estado==3) {
+                    $(location).attr('href','mod_bedel/home.php');
+                }
+            } else {
+                $("#resultado").html('<div class="alert alert-danger" role="alert"><b>Error:</b>&nbsp;'+response.data+'.</div>');
+            }
+      },"json")
+
+});
+
+</script>
+
 </html>
