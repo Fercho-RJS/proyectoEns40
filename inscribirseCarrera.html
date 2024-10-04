@@ -114,8 +114,8 @@
           <div class="row">
             <div class="col-12">
               <hr>
-              <label for="carrera" class="form-label" style="font-family: 'Fredoka', sans-serif;">Carrera a la que se Inscribe<span style="color: red;">*</span></label>
-              <select class="form-select" aria-label="Default select example" name="carrera" id="carrera" style="font-family: 'Fredoka', sans-serif;">
+              <label for="inputCarrera" class="form-label" style="font-family: 'Fredoka', sans-serif;">Carrera a la que se Inscribe<span style="color: red;">*</span></label>
+              <select class="form-select" aria-label="Default select example" name="inputCarrera" id="inputCarrera" style="font-family: 'Fredoka', sans-serif;">
                 <option selected>Seleccione Carrera</option>
                 <option value="1">Profesorado de Educación Primaria</option>
                 <option value="2">Tecnicatura en Desarrollo de Software</option>
@@ -124,65 +124,65 @@
             </div>
             
             <div class="col-sm-6">
-              <label for="apellido" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Apellido <span style="color: red;">*</span></label>
-              <input type="text" style="font-family: 'Fredoka', sans-serif;" class="form-control" name="apellido" id="apellido" placeholder="Ingrese Apellido">
+              <label for="inputApellido" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Apellido <span style="color: red;">*</span></label>
+              <input type="text" class="form-control" name="inputApellido" id="inputApellido" style="font-family: 'Fredoka', sans-serif;" placeholder="Ingrese Apellido">
             </div>
             
             <div class="col-sm-6 mb-3">
-              <label for="nombre" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Nombre<span style="color: red;">*</span></label>
-              <input type="text" class="form-control" name="nombre" id="nombre" style="font-family: 'Fredoka', sans-serif;" placeholder="Ingresa Nombre">
+              <label for="inputNombres" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Nombre<span style="color: red;">*</span></label>
+              <input type="text" class="form-control" name="inputNombres" id="inputNombres" style="font-family: 'Fredoka', sans-serif;" placeholder="Ingresa Nombre">
             </div>
             
             <div class="col-sm-6">
-              <label for="DNI" class="form-label" style="font-family: 'Fredoka', sans-serif;">DNI (Sin puntos)<span style="color: red;">*</span></label>
-              <input type="text" class="form-control" name="DNI" id="DNI" style="font-family: 'Fredoka', sans-serif;" placeholder="Ingresa DNI">
+              <label for="inputDni" class="form-label" style="font-family: 'Fredoka', sans-serif;">DNI (Sin puntos)<span style="color: red;">*</span></label>
+              <input type="text" class="form-control" name="inputDni" id="inputDni" style="font-family: 'Fredoka', sans-serif;" placeholder="Ingresa DNI">
             </div>
             
             <div class="col-sm-6 mb-3">
               <label for="fechaNac" class="form-label" style="font-family: 'Fredoka', sans-serif;">Fecha Nacimiento<span style="color: red;">*</span></label>
-              <input type="date" class="form-control" name="fechaNac" id="fechaNac">
+              <input type="date" class="form-control" name="inputFechaNacimiento" id="inputFechaNacimiento">
             </div>
 
             <div class="col-md-6 ">
-              <label for="localidad" class="form-label" style="font-family: 'Fredoka', sans-serif;">Localidad<span style="color: red;">*</span></label>
-              <select class="form-select" aria-label="" aria-placeholder="">
+              <label for="inputLocalidad" class="form-label" style="font-family: 'Fredoka', sans-serif;">Localidad<span style="color: red;">*</span></label>
+              <select class="form-select" name="inputLocalidad" id="inputLocalidad" aria-label="" aria-placeholder="">
                 <option selected>San Cristobal</option>
               </select>
               
               <div class="row g-3 align-items-center pt-2">
                 <div class="col-3">
-                  <label for="area" class="form-label" style="font-family: 'Fredoka', sans-serif;">Area<span style="color: red;">*</span></label>
-                  <input type="tel" id="area" class="form-control" style="font-family: 'Fredoka', sans-serif;" placeholder="sin el 0">
+                  <label for="inputCaracteristicaTelefono" class="form-label" style="font-family: 'Fredoka', sans-serif;">Area<span style="color: red;">*</span></label>
+                  <input type="tel" name="inputCaracteristicaTelefono" id="inputCaracteristicaTelefono" class="form-control" style="font-family: 'Fredoka', sans-serif;" placeholder="sin el 0">
                 </div>
                 
                 <div class="col-9">
-                  <label for="celular" class="form-label" style="font-family: 'Fredoka', sans-serif;">Celular<span style="color: red;">*</span></label>
-                  <input type="tel" id="celular" class="form-control" style="font-family: 'Fredoka', sans-serif;" placeholder="sin el 15">
+                  <label for="inputNumeroTelefono" class="form-label" style="font-family: 'Fredoka', sans-serif;">Celular<span style="color: red;">*</span></label>
+                  <input type="tel" name="inputNumeroTelefono" id="inputNumeroTelefono" class="form-control" style="font-family: 'Fredoka', sans-serif;" placeholder="sin el 15">
                 </div>
               </div>
             </div>
             
             <div class="col-md-6">
-              <label for="genero" class="form-label" style="font-family: 'Fredoka', sans-serif;">Género<span style="color: red;">*</span></label>
-              <select class="form-select" aria-label="Default select example" name="genero" id="genero" style="font-family: 'Fredoka', sans-serif;"git>
+              <label for="inputGenero" class="form-label" style="font-family: 'Fredoka', sans-serif;">Género<span style="color: red;">*</span></label>
+              <select class="form-select" aria-label="Default select example" name="inputGenero" id="inputGenero" style="font-family: 'Fredoka', sans-serif;"git>
                 <option selected>Seleccione Género</option>
                 <option value="1">Masculino</option>
                 <option value="2">Femenino</option>
                 <!--<option value="3">No binario</option>-->
               </select>
               
-              <label for="email" class="form-label  pt-2" style="font-family: 'Fredoka', sans-serif;">Email<span style="color: red;">*</span></label>
-              <input type="email" class="form-control" id="email" placeholder="correo@mail.com">
+              <label for="inputEmail" class="form-label  pt-2" style="font-family: 'Fredoka', sans-serif;">Email<span style="color: red;">*</span></label>
+              <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="correo@mail.com">
             </div>
             
             <div class="col-12">
               <label for="domicilio" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Domicilio<span style="color: red;">*</span></label>
-              <input type="text" class="form-control" id="domicilio" placeholder="San Martin 1122">
+              <input type="text" class="form-control" name="inputDomicilio" id="inputDomicilio" placeholder="San Martin 1122">
             </div>
             
             <div class="col-sm-6">
-              <label for="EstadoCivil" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Estado Civil<span style="color: red;">*</span></label>
-              <select class="form-select" aria-label="Default select example" name="EstadoCivil" id="EstadoCivil" style="font-family: 'Fredoka', sans-serif;">
+              <label for="inputEstadoCivil" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Estado Civil<span style="color: red;">*</span></label>
+              <select class="form-select" aria-label="Default select example" name="inputEstadoCivil" id="inputEstadoCivil" style="font-family: 'Fredoka', sans-serif;">
                   <option value="1">Soltero/a</option>
                   <option value="2">Casado/a</option>
                   <option value="3">Unión libre o unión de hecho</option>
@@ -193,22 +193,22 @@
             </div>
 
             <div class="col-sm-6 mb-3">
-              <label for="ocupacion" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Ocupacion </label>
-              <input type="text" class="form-control" name="ocupacion" id="ocupacion">
+              <label for="inputOcupacion" class="form-label pt-2" style="font-family: 'Fredoka', sans-serif;">Ocupacion </label>
+              <input type="text" class="form-control" name="inputOcupacion" id="inputOcupacion">
             </div>
             
             <div class="col-sm-6">
-              <label for="titulo" class="form-label" style="font-family: 'Fredoka', sans-serif;">Titulo Secundario</label>
-              <input type="text" class="form-control" name="titulo" id="titulo">
+              <label for="inputTitulo" class="form-label" style="font-family: 'Fredoka', sans-serif;">Titulo Secundario</label>
+              <input type="text" class="form-control" name="inputTitulo" id="inputTitulo">
             </div>
             
             <div class="col-sm-6 mb-3">
-              <label for="tituloesc" class="form-label" style="font-family: 'Fredoka', sans-serif;">Titulo Expendido por la escuela</label>
-              <input type="text" class="form-control" name="tituloesc" id="tituloesc">
+              <label for="inputEscuela" class="form-label" style="font-family: 'Fredoka', sans-serif;">Titulo Expendido por la escuela</label>
+              <input type="text" class="form-control" name="inputEscuela" id="inputEscuela">
             </div>
 
             <div class="d-grid gap-2 pt-2">
-              <button type="submit" class="btn btn-success" name="enviar" id="enviar">Enviar</button>
+              <button type="button" class="btn btn-success" name="enviar" id="btnEnviar">Enviar</button>
               <button type="button" class="btn btn-primary" href="index.html">Volver</button>
             </div>
           </div>
@@ -337,12 +337,12 @@
 </body>
 
 <!--Script JQUERY-->
-<script src="./public/assets/jquery/jquery-3.2.1.slim/jquery-3.2.1.min.js"></script>
+<script src="./public/assets/js/jquery-3.4.1.min.js"></script>
 <!--Script JS de Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
 
-let txtInputArea = document.querySelector('#area');
+let txtInputArea = document.querySelector('#inputCaracteristicaTelefono');
 
 txtInputArea.addEventListener('keyup',()=>{
     let str = txtInputArea.value;
@@ -378,6 +378,95 @@ $('#btnIngresar').click(function(event) {
       },"json")
 
 });
+
+
+
+$("#btnEnviar").click(function(event) {
+    event.preventDefault();
+     //$('#form_ingresante').prepend('<input type="hidden" id="token" name="token" value="' + token + '">');
+     //$('#form_ingresante').prepend('<input type="hidden" id="action" name="action" value="'+action+'">');
+    let car = $('#inputCarrera').val();
+    let ape = $('#inputApellido').val();
+    let nom = $('#inputNombres').val();
+    let dni = $('#inputDni').val();
+    let f_nac = $('#inputFechaNacimiento').val();
+    
+    let loc = $('#inputLocalidad').val();
+
+    let cel_car = $('#inputCaracteristicaTelefono').val();
+    let cel_num = $('#inputNumeroTelefono').val();
+    let genero = $('#inputGenero').val();
+    let email = $('#inputEmail').val();
+    let dom = $('#inputDomicilio').val();
+    let estado_civil = $('#inputEstadoCivil').val();
+
+    let ocupacion = $('#inputOcupacion').val();
+    let titulo = $('#inputTitulo').val();
+    let escuela = $('#inputEscuela').val();
+
+    let url = "ajax/registrarIngresante";
+    let parametros = {'inputApellido':ape,'inputNombres':nom,'inputDni':dni,'inputGenero':genero,'inputFechaNacimiento':f_nac,'inputCelularCar':cel_car,'inputCelularNum':cel_num,'inputEmail':email,'inputDomicilio':dom,'inputLocalidad':loc,'inputCarrera':car,'inputEstadoCivil':estado_civil,'inputOcupacion':ocupacion,'inputTitulo':titulo,'inputEscuela':escuela};
+
+    //console.info(parametros);
+
+
+    $.post(url,parametros,function(datos){
+          var estado = "";
+          var info = "";
+          $.each(datos, function(i, item) {
+                if (i=='estado') estado = item;
+                else if (i=='info') info = item;
+          });
+          
+          if (estado>=1 && estado<=20) {
+                        $("#resultado").html('<div class="alert alert-danger" role="alert"><b>Error:</b>&nbsp;'+info+'</div>');
+          } else if (estado==100 || estado==101) {
+                $("#resultado").html('<div class="alert alert-success" role="alert"><b>Atenci&oacute;n:</b>&nbsp;'+info+'<div>');
+                $("#inputApellido").prop('disabled', true);$("#inputNombres").prop('disabled', true);
+                $("#inputDni").prop('disabled', true);$("#inputCelular").prop('disabled', true);
+                $("#inputDomicilio").prop('disabled', true);$("#inputLocalidad").prop('disabled', true);
+                $("#inputGenero").prop('disabled', true);$("#inputEmail").prop('disabled', true);
+                $("#inputFechaNacimiento").prop('disabled', true);$("#inputProvincia").prop('disabled', true);
+                $("#inputCarrera").prop('disabled', true);
+                $("#inputEstadoCivil").prop('disabled', true);$("#inputOcupacion").prop('disabled', true);
+                $("#inputTitulo").prop('disabled', true);$("#inputEscuela").prop('disabled', true);
+                $("#btnEnviar").prop('disabled',true);
+          }
+    },"json");
+
+
+    /*            
+    $.ajax({
+                 type: "POST",
+                 url: "ajax/registrarIngresante.php",
+                 data: parametros,
+                 dataType: "json",
+                 success: function(datos){
+                     var estado = "";
+                     var info = "";
+                     $.each(datos, function(i, item) {
+                         if (i=='estado') estado = item;
+                         else if (i=='info') info = item;
+                     });
+                     if (estado>=1 && estado<=20) {
+                        $("#resultado").html('<div class="alert alert-danger" role="alert"><b>Error:</b>&nbsp;'+info+'</div>');
+                     } else if (estado==100 || estado==101) {
+                        $("#resultado").html('<div class="alert alert-success" role="alert"><b>Atenci&oacute;n:</b>&nbsp;'+info+'<div>');
+                        $("#inputApellido").prop('disabled', true);$("#inputNombres").prop('disabled', true);
+                        $("#inputDni").prop('disabled', true);$("#inputCelular").prop('disabled', true);
+                        $("#inputDomicilio").prop('disabled', true);$("#inputLocalidad").prop('disabled', true);
+                        $("#inputGenero").prop('disabled', true);$("#inputEmail").prop('disabled', true);
+                        $("#inputFechaNacimiento").prop('disabled', true);$("#inputProvincia").prop('disabled', true);
+                        $("#inputCarrera").prop('disabled', true);
+                        $("#inputEstadoCivil").prop('disabled', true);$("#inputOcupacion").prop('disabled', true);
+                        $("#inputTitulo").prop('disabled', true);$("#inputEscuela").prop('disabled', true);
+                        $("#btnAceptar").prop('disabled',true);
+                     }
+                 }
+           });*/
+
+});
+       
 
 </script>
 </html>
