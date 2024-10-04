@@ -419,7 +419,7 @@ $("#btnEnviar").click(function(event) {
           });
           
           if (estado>=1 && estado<=20) {
-                        $("#resultado").html('<div class="alert alert-danger" role="alert"><b>Error:</b>&nbsp;'+info+'</div>');
+                $("#resultado").html('<div class="alert alert-danger" role="alert"><b>Error:</b>&nbsp;'+info+'</div>');
           } else if (estado==100 || estado==101) {
                 $("#resultado").html('<div class="alert alert-success" role="alert"><b>Atenci&oacute;n:</b>&nbsp;'+info+'<div>');
                 $("#inputApellido").prop('disabled', true);$("#inputNombres").prop('disabled', true);
