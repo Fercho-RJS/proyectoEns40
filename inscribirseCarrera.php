@@ -1,29 +1,32 @@
+<?php
+        session_start();
+        set_include_path('./conexion');
+        require_once "config.php";
+        $_SESSION['token'] =crypt(rand(5, getrandmax()),$MY_SECRET);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de Gestión - E.N.S. N° 40</title>
-
+  <link rel="icon" href="./public/assets/img/favicon.ico">
+  
   <!--CDN de Bootstrap-->
   <link rel="stylesheet" href="./public/sass/style.css">
+  <link rel="stylesheet" href="./public/assets/css/select2.min.css">
+  <link rel="stylesheet" href="./public/assets/css/select2-bootstrap.css">
 </head>
 
 <body class="">
 
-  <!--
-  ██╗  ██╗███████╗ █████╗ ██████╗ ███████╗██████╗ 
-  ██║  ██║██╔════╝██╔══██╗██╔══██╗██╔════╝██╔══██╗
-  ███████║█████╗  ███████║██║  ██║█████╗  ██████╔╝
-  ██╔══██║██╔══╝  ██╔══██║██║  ██║██╔══╝  ██╔══██╗
-  ██║  ██║███████╗██║  ██║██████╔╝███████╗██║  ██║
-  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝
-  -->
 
   <header class=""> <!--Encabezado-->
     <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="light"> <!--Navegación-->
       <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html">
+        <a class="navbar-brand" href="./index.php">
           <img src="./public/assets/img/Logo ENS40.png" alt="Logo" width="40" class="d-inline-block align-text-center">
         </a>
 
@@ -44,7 +47,7 @@
                 Inscripción a carreras
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./inscribirseCarrera.html">¡Inscribirse ahora!</a></li>
+                <li><a class="dropdown-item" href="#">¡Inscribirse ahora!</a></li>
                 <li><a class="dropdown-item disabled" href="#">Oferta académica</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item disabled" href="#">Descargar comprobante</a></li>
@@ -92,7 +95,7 @@
 
       <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <a class="btn" href="./index.html">Inicio</a>
+          <a class="btn" href="./index.php">Inicio</a>
         </div>
         <div class="col-auto">
           <span id="passwordHelpInline" class="form-text">
@@ -116,11 +119,9 @@
               <hr>
               <label for="inputCarrera" class="form-label" style="font-family: 'Fredoka', sans-serif;">Carrera a la que se Inscribe<span style="color: red;">*</span></label>
               <select class="form-select" aria-label="Default select example" name="inputCarrera" id="inputCarrera" style="font-family: 'Fredoka', sans-serif;">
-                <option selected>Seleccione Carrera</option>
-                <option value="1">Profesorado de Educación Primaria</option>
-                <option value="2">Tecnicatura en Desarrollo de Software</option>
-                <option value="3">Profesorado Secundario en Biologia</option>
+                <option value="15" selected>Tecnicatura Desarrollo de Software</option>
               </select>
+              <input type="text" class="form-control" name="inputToken" id="inputToken" value="<?=$_SESSION['token']?>">
             </div>
             
             <div class="col-sm-6">
@@ -145,8 +146,8 @@
 
             <div class="col-md-6 ">
               <label for="inputLocalidad" class="form-label" style="font-family: 'Fredoka', sans-serif;">Localidad<span style="color: red;">*</span></label>
-              <select class="form-select" name="inputLocalidad" id="inputLocalidad" aria-label="" aria-placeholder="">
-                <option selected>San Cristobal</option>
+              <select id="inputLocalidad" class="form-control select2" placeholder="Localidad" required>
+                <option selected="selected" value="1408">SAN CRISTOBAL (PCIA. SANTA FE)</option>
               </select>
               
               <div class="row g-3 align-items-center pt-2">
@@ -203,18 +204,34 @@
             </div>
             
             <div class="col-sm-6 mb-3">
-              <label for="inputEscuela" class="form-label" style="font-family: 'Fredoka', sans-serif;">Titulo Expendido por la escuela</label>
+              <label for="inputEscuela" class="form-label" style="font-family: 'Fredoka', sans-serif;">Escuela de la que egresó</label>
               <input type="text" class="form-control" name="inputEscuela" id="inputEscuela">
             </div>
 
             <div class="d-grid gap-2 pt-2">
-              <button type="button" class="btn btn-success" name="enviar" id="btnEnviar">Enviar</button>
-              <button type="button" class="btn btn-primary" href="index.html">Volver</button>
+              <button type="button" id="btnRegistrar" class="btn btn-success" name="enviar" id="enviar">Enviar</button>
+              <button type="button" class="btn btn-primary" onclick="location.href='index.php'">Volver</button>
             </div>
           </div>
         </form>
       </div>
     </section>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </symbol>
+      <symbol id="info-fill" viewBox="0 0 16 16">
+          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+      </symbol>
+      <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </symbol>
+    </svg>
+
+    <div id='mensaje' class="d-none">
+         aaaaaaa
+    </div> 
 
     <!-- Modal: Acceder al sistema-->
     <div class="modal fade" id="modalAccederSistema" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -294,7 +311,7 @@
           </div>
 
           <div class="modal-footer"> <!--Pie del modal-->
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Volver al inicio</button>
+            <button type="button" id="btnEnviar" class="btn btn-danger" data-bs-dismiss="modal">Volver al inicio</button>
             <button type="button" id="btnRestablecer" class="btn btn-primary">Reestablecer</button>
           </div>
         </div>
@@ -340,7 +357,10 @@
 <script src="./public/assets/js/jquery-3.4.1.min.js"></script>
 <!--Script JS de Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="./public/assets/js/select2.min.js"></script>
+
 <script>
+
 
 let txtInputArea = document.querySelector('#inputCaracteristicaTelefono');
 
@@ -352,14 +372,81 @@ txtInputArea.addEventListener('keyup',()=>{
 });
 
 
-$('#btnIngresar').click(function(event) {
+$(document).ready(function() {
+    let url_select2_localidad = "ajax/localidadObtener.php";// Esto puede cambiar 
+    let url_select2_carrera = "ajax/carreraObtener.php";// Esto puede cambiar 
+
+    
+    $('#inputLocalidad').select2({
+                                theme: "bootstrap",
+                                placeholder: "Ingrese la Localidad",
+                                allowClear: true,
+                                language: {
+                                            noResults: function() {
+                                              return "No hay resultado";        
+                                            },
+                                            searching: function() {
+                                              return "Buscando..";
+                                            }
+                                          },
+                                ajax: {
+                                    url: url_select2_localidad,
+                                    dataType: 'json',
+                                    delay: 250,
+                                    data: function (data) {
+                                        return {
+                                            searchTerm: data.term // search term
+                                        };
+                                    },
+                                    processResults: function (response) {
+                                        return {
+                                            results:response
+                                        };
+                                    },
+                                    cache: true
+                                }
+    }); 
+
+    $('#inputCarrera').select2({
+                                theme: "bootstrap",
+                                placeholder: "Buscar Carrera",
+                                language: {
+                                            noResults: function() {
+                                              return "No hay resultado";        
+                                            },
+                                            searching: function() {
+                                              return "Buscando..";
+                                            }
+                                          },
+                                ajax: {
+                                    url: url_select2_carrera,
+                                    dataType: 'json',
+                                    delay: 250,
+                                    data: function (data) {
+                                        return {
+                                            searchTerm: data.term // search term
+                                        };
+                                    },
+                                    processResults: function (response) {
+                                        return {
+                                            results:response
+                                        };
+                                    },
+                                    cache: true
+                                }
+    });
+});
+
+
+$('#inputLocalidad').select2();
+
+$('#btnEnviar').click(function(event) {
       event.preventDefault();
 
       let usuario = $('#inputUsuario').val();
       let pwd = $('#inputPassword').val();
       let perfil = $('#inputPerfil').val();
       let parametros = {'inputUsuario':usuario,'inputPassword':pwd,'inputPerfil':perfil}
-      //console.log(parametros);
       let link = "ajax/autenticar.php";
 
       $.post(link,parametros,function(response) {
@@ -380,63 +467,74 @@ $('#btnIngresar').click(function(event) {
 });
 
 
-
-$("#btnEnviar").click(function(event) {
-    event.preventDefault();
-     //$('#form_ingresante').prepend('<input type="hidden" id="token" name="token" value="' + token + '">');
-     //$('#form_ingresante').prepend('<input type="hidden" id="action" name="action" value="'+action+'">');
+$("#btnRegistrar").click(function(event) {
     let car = $('#inputCarrera').val();
     let ape = $('#inputApellido').val();
     let nom = $('#inputNombres').val();
     let dni = $('#inputDni').val();
     let f_nac = $('#inputFechaNacimiento').val();
-    
     let loc = $('#inputLocalidad').val();
-
     let cel_car = $('#inputCaracteristicaTelefono').val();
     let cel_num = $('#inputNumeroTelefono').val();
     let genero = $('#inputGenero').val();
     let email = $('#inputEmail').val();
     let dom = $('#inputDomicilio').val();
     let estado_civil = $('#inputEstadoCivil').val();
-
     let ocupacion = $('#inputOcupacion').val();
     let titulo = $('#inputTitulo').val();
     let escuela = $('#inputEscuela').val();
+    let token = $('#inputToken').val();
+    let alert  = "";
 
-    let url = "ajax/registrarIngresante";
-    let parametros = {'inputApellido':ape,'inputNombres':nom,'inputDni':dni,'inputGenero':genero,'inputFechaNacimiento':f_nac,'inputCelularCar':cel_car,'inputCelularNum':cel_num,'inputEmail':email,'inputDomicilio':dom,'inputLocalidad':loc,'inputCarrera':car,'inputEstadoCivil':estado_civil,'inputOcupacion':ocupacion,'inputTitulo':titulo,'inputEscuela':escuela};
+    $("#mensaje").removeClass('d-none');
+    if (car && ape && nom && dni && f_nac && loc && cel_car && cel_num && genero && email && dom && estado_civil && ocupacion && titulo && escuela && token) {
+        let url = "ajax/registrarIngresante";
+        let parametros = {'inputCarrera':car, 'inputApellido':ape,'inputNombres':nom,'inputDni':dni,
+                          'inputFechaNacimiento':f_nac,'inputLocalidad':loc, 'inputCelularCar':cel_car,'inputCelularNum':cel_num,
+                          'inputGenero':genero,'inputEmail':email,'inputDomicilio':dom,'inputEstadoCivil':estado_civil,
+                          'inputOcupacion':ocupacion,'inputTitulo':titulo,'inputEscuela':escuela,'token':token};
 
-    //console.info(parametros);
-
-
-    $.post(url,parametros,function(datos){
-          var estado = "";
-          var info = "";
-          $.each(datos, function(i, item) {
-                if (i=='estado') estado = item;
-                else if (i=='info') info = item;
-          });
-          
-          if (estado>=1 && estado<=20) {
-                $("#resultado").html('<div class="alert alert-danger" role="alert"><b>Error:</b>&nbsp;'+info+'</div>');
-          } else if (estado==100 || estado==101) {
-                $("#resultado").html('<div class="alert alert-success" role="alert"><b>Atenci&oacute;n:</b>&nbsp;'+info+'<div>');
-                $("#inputApellido").prop('disabled', true);$("#inputNombres").prop('disabled', true);
-                $("#inputDni").prop('disabled', true);$("#inputCelular").prop('disabled', true);
-                $("#inputDomicilio").prop('disabled', true);$("#inputLocalidad").prop('disabled', true);
-                $("#inputGenero").prop('disabled', true);$("#inputEmail").prop('disabled', true);
-                $("#inputFechaNacimiento").prop('disabled', true);$("#inputProvincia").prop('disabled', true);
-                $("#inputCarrera").prop('disabled', true);
-                $("#inputEstadoCivil").prop('disabled', true);$("#inputOcupacion").prop('disabled', true);
-                $("#inputTitulo").prop('disabled', true);$("#inputEscuela").prop('disabled', true);
-                $("#btnEnviar").prop('disabled',true);
-          }
-    },"json");
+        console.info(parametros);
 
 
-    /*            
-    $.ajax({
+        /*let alert = `<div class="alert alert-`+response.alert+` d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+                An example success alert with an icon
+            </div>
+            </div>`;*/
+        alert = `<div class="alert alert-success d-flex align-items-center" role="alert">
+                      <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                      <div>
+                          HARDCODED MESSAGE
+                      </div>
+                      </div>`;
+        
+                      $('#inputEscuela').prop('disabled',true);
+        $('#inputCarrera').prop('disabled',true);
+        $('#inputApellido').prop('disabled',true);
+        $('#inputNombres').prop('disabled',true);
+        $('#inputDni').prop('disabled',true);
+        $('#inputFechaNacimiento').prop('disabled',true);
+        $('#inputLocalidad').prop('disabled',true);
+        $('#inputCaracteristicaTelefono').prop('disabled',true);
+        $('#inputNumeroTelefono').prop('disabled',true);
+        $('#inputGenero').prop('disabled',true);
+        $('#inputEmail').prop('disabled',true);
+        $('#inputDomicilio').prop('disabled',true);
+        $('#inputEstadoCivil').prop('disabled',true);
+        $('#inputOcupacion').prop('disabled',true);
+        $('#inputTitulo').prop('disabled',true);
+        $('#inputEscuela').prop('disabled',true);
+        $('#inputToken').prop('disabled',true);
+        $('#btnRegistrar').prop('disabled', true);
+        
+        
+
+
+
+        /*            
+        $.ajax({
                  type: "POST",
                  url: "ajax/registrarIngresante.php",
                  data: parametros,
@@ -463,7 +561,24 @@ $("#btnEnviar").click(function(event) {
                         $("#btnAceptar").prop('disabled',true);
                      }
                  }
-           });*/
+        });*/
+
+    } else {
+        alert = `<div class="alert alert-danger d-flex align-items-center" role="alert">
+                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                      <div>
+                          HARDCODED MESSAGE
+                      </div>
+                      </div>`;
+        
+
+
+
+
+    }
+    
+$("#mensaje").html(alert);
+    
 
 });
        

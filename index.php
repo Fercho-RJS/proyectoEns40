@@ -1,9 +1,16 @@
+<?php
+        session_start();
+        set_include_path('./conexion');
+        require_once "config.php";
+        $_SESSION['token'] = crypt(rand(5, getrandmax()),$MY_SECRET);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de Gestión - E.N.S. N° 40</title>
+  <link rel="icon" href="./public/assets/img/favicon.ico">
 
   <!--CDN de Bootstrap-->
   <link rel="stylesheet" href="./public/sass/style.css">
@@ -11,19 +18,11 @@
 
 <body class="">
 
-  <!--
-  ██╗  ██╗███████╗ █████╗ ██████╗ ███████╗██████╗ 
-  ██║  ██║██╔════╝██╔══██╗██╔══██╗██╔════╝██╔══██╗
-  ███████║█████╗  ███████║██║  ██║█████╗  ██████╔╝
-  ██╔══██║██╔══╝  ██╔══██║██║  ██║██╔══╝  ██╔══██╗
-  ██║  ██║███████╗██║  ██║██████╔╝███████╗██║  ██║
-  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝
-  -->
-
+ 
   <header class=""> <!--Encabezado-->
     <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="light"> <!--Navegación-->
       <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html">
+        <a class="navbar-brand" href="./index.php">
           <img src="./public/assets/img/Logo ENS40.png" alt="Logo" width="40" class="d-inline-block align-text-center">
         </a>
 
@@ -44,7 +43,7 @@
                 Inscripción a carreras
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./inscribirseCarrera.html">¡Inscribirse ahora!</a></li>
+                <li><a class="dropdown-item" href="./inscribirseCarrera.php">¡Inscribirse ahora!</a></li>
                 <li><a class="dropdown-item disabled" href="#">Oferta académica</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item disabled" href="#">Descargar comprobante</a></li>
@@ -153,7 +152,7 @@
         </div>
       </div>
     </div>
-
+    <input type="hidden" class="form-control" name="inputToken" id="inputToken" value="<?=$_SESSION['token']?>">
     <!-- Modal: Acceder al sistema-->
     <div class="modal fade" id="modalAccederSistema" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -279,15 +278,15 @@
 <script src="./public/assets/js/jquery-3.4.1.min.js"></script>
 <!--Script JS de Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 <script>
 $('#btnIngresar').click(function(event) {
-      event.preventDefault();
-
       let usuario = $('#inputUsuario').val();
       let pwd = $('#inputPassword').val();
       let perfil = $('#inputPerfil').val();
-      let parametros = {'inputUsuario':usuario,'inputPassword':pwd,'inputPerfil':perfil}
-      //console.log(parametros);
+      let token = $('#inputToken').val();
+
+      let parametros = {'inputUsuario':usuario,'inputPassword':pwd,'inputPerfil':perfil,'token':token}
       let link = "ajax/autenticar.php";
 
       $.post(link,parametros,function(response) {
@@ -308,5 +307,6 @@ $('#btnIngresar').click(function(event) {
 });
 
 </script>
+
 
 </html>
