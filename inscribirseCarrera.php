@@ -503,12 +503,14 @@ $("#btnRegistrar").click(function(event) {
                 An example success alert with an icon
             </div>
             </div>`;*/
-        alert = `<div class="alert alert-success d-flex align-items-center" role="alert">
-                      <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                      <div>
-                          HARDCODED MESSAGE
-                      </div>
-                      </div>`;
+            alert = `<div class="alert alert-success d-flex align-items-center text-center justify-content-center" role="alert" style="font-size: 14px; padding: 4px 10px; margin: 5px 0; border-radius: 4px; min-height: 30px;">
+          <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:" style="width: 16px; height: 16px;"><use xlink:href="#check-circle-fill"/></svg>
+          <div>
+              REGISTRO EXITOSO
+          </div>
+          <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:" style="width: 16px; height: 16px;"><use xlink:href="#check-circle-fill"/></svg>
+          </div>`;
+
         
                       $('#inputEscuela').prop('disabled',true);
         $('#inputCarrera').prop('disabled',true);
@@ -564,12 +566,13 @@ $("#btnRegistrar").click(function(event) {
         });*/
 
     } else {
-        alert = `<div class="alert alert-danger d-flex align-items-center" role="alert">
-                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                      <div>
-                          HARDCODED MESSAGE
-                      </div>
-                      </div>`;
+      alert = `<div class="alert alert-danger d-flex align-items-center text-center justify-content-center" role="alert" style="font-size: 14px; padding: 4px 10px; margin: 5px 0; border-radius: 4px; min-height: 30px;">
+          <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" style="width: 16px; height: 16px;"><use xlink:href="#exclamation-triangle-fill"/></svg>
+          <div>
+              FALTAN DATOS
+          </div>
+          <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" style="width: 16px; height: 16px;"><use xlink:href="#exclamation-triangle-fill"/></svg>
+          </div>`;
         
 
 
